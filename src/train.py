@@ -34,7 +34,7 @@ if __name__ == "__main__":
     label_encoders = []
     for col in train_df.columns:
         lab = preprocessing.LabelEncoder()
-        lab.fit((train_df[col].values.tolist() + valid_df[col].values.tolist()))
+        lab.fit((train_df[col].values.tolist()+ valid_df[col].values.tolist()))
         train_df.loc[:, col] = lab.transform(train_df[col].values.tolist())
         valid_df.loc[:, col] = lab.transform(valid_df[col].values.tolist())
         label_encoders.append((col, lab))
